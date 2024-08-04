@@ -1,18 +1,16 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+import ApplicationHeader from './components/ApplicationHeader.vue'
 </script>
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
     <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
+      <ApplicationHeader class="application-header" msg="MedalStat" />
       <nav>
         <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
+        <RouterLink to="/summer">Summer</RouterLink>
+        <RouterLink to="/winter">Winter</RouterLink>
       </nav>
     </div>
   </header>
@@ -22,19 +20,24 @@ import HelloWorld from './components/HelloWorld.vue'
 
 <style scoped>
 header {
+  left: 2.5rem;
   line-height: 1.5;
   max-height: 100vh;
+  position: fixed;
+  top: 1rem;
+  width: 100%;
+  display: flex;
+  place-items: center;
+  padding-right: calc(var(--section-gap) / 2);
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
+.wrapper {
+  justify-content: space-between;
+  width: 100%;
 }
 
 nav {
-  width: 100%;
   font-size: 12px;
-  text-align: center;
   margin-top: 2rem;
 }
 
@@ -47,9 +50,9 @@ nav a.router-link-exact-active:hover {
 }
 
 nav a {
+  border-left: 1px solid var(--color-border);
   display: inline-block;
   padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
 }
 
 nav a:first-of-type {
@@ -60,11 +63,6 @@ nav a:first-of-type {
   header {
     display: flex;
     place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
   }
 
   header .wrapper {
@@ -74,11 +72,9 @@ nav a:first-of-type {
   }
 
   nav {
-    text-align: left;
-    margin-left: -1rem;
     font-size: 1rem;
 
-    padding: 1rem 0;
+    left: 2.5rem;
     margin-top: 1rem;
   }
 }
